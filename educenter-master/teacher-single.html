@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Teacher Profile - Blessed Jildo and Daudi LTI</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <!-- Teacher Single Page Styles -->
+  <style>
+    /* Profile Card */
+    .teacher-profile-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+    }
+    
+    .teacher-profile-image {
+      position: relative;
+      height: 400px;
+    }
+    
+    .teacher-profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .teacher-profile-image .department-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: linear-gradient(135deg, #00bcd4, #28a745);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .teacher-profile-content {
+      padding: 30px;
+    }
+    
+    .teacher-profile-content h2 {
+      color: #1a1a1a;
+      margin-bottom: 5px;
+    }
+    
+    .teacher-profile-content .position {
+      color: #00bcd4;
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    
+    .teacher-profile-content .bio {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+    
+    /* Contact Info */
+    .contact-info-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 25px;
+    }
+    
+    .contact-info-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-info-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .contact-info-list li i {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #00bcd4, #28a745);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      margin-right: 15px;
+    }
+    
+    .contact-info-list li span {
+      color: #666;
+    }
+    
+    /* Social Links */
+    .teacher-social-links {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .teacher-social-links a {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a1a1a;
+      transition: all 0.3s ease;
+    }
+    
+    .teacher-social-links a:hover {
+      background: #00bcd4;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+    
+    /* Info Section */
+    .info-section {
+      background: #f8f9fa;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .info-section h4 {
+      color: #1a1a1a;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #00bcd4;
+      display: inline-block;
+    }
+    
+    .info-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .info-section ul li {
+      padding: 8px 0;
+      color: #666;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .info-section ul li i {
+      color: #00bcd4;
+      margin-right: 10px;
+      margin-top: 4px;
+    }
+    
+    /* Skills */
+    .skill-bar {
+      margin-bottom: 20px;
+    }
+    
+    .skill-bar .skill-name {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    
+    .skill-bar .skill-progress {
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .skill-bar .skill-progress .progress-fill {
+      height: 100%;
+      background: linear-gradient(135deg, #00bcd4, #28a745);
+      border-radius: 4px;
+      transition: width 1s ease;
+    }
+    
+    /* Course Cards */
+    .course-mini-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .course-mini-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+    
+    .course-mini-card h5 {
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+    
+    .course-mini-card p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+    
+    /* Back Button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 25px;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .back-btn:hover {
+      background: #00bcd4;
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    .back-btn i {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2 bg-dark-header">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-4 text-center text-lg-left">
+          <a class="text-color mr-3" href="callto:+256773397356"><strong>CALL</strong> +256 773 397356</a>
+          <ul class="list-inline d-inline">
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-facebook"></i></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-twitter-alt"></i></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-linkedin"></i></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-instagram"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8 text-center text-lg-right">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="notice.html">notice</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="research.html">research</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="scholarship.html">SCHOLARSHIP</a></li>
+            
+            <li class="list-inline-item dropdown">
+              <a class="btn btn-donate dropdown-toggle" href="#" role="button" id="donateDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="ti-heart"></i> Donate
+              </a>
+              <div class="dropdown-menu dropdown-menu-right donate-dropdown" aria-labelledby="donateDropdown">
+                <div class="dropdown-header"><i class="ti-gift mr-2"></i>BJDLTI Bank Account Details</div>
+                <div class="bank-item">
+                  <div class="bank-name"><i class="ti-credit-card mr-2"></i>UGX (Shillings) Account</div>
+                  <div class="account-details">Centenary Bank, Lira Branch</div>
+                  <div class="account-number">A/C: 3100112588</div>
+                  <div class="account-name">BJDTLI</div>
+                </div>
+                <div class="bank-item">
+                  <div class="bank-name"><i class="ti-world mr-2"></i>USD Account</div>
+                  <div class="account-details">Centenary Bank, Lira Branch</div>
+                  <div class="account-number">A/C: 3100112589</div>
+                  <div class="account-name">BJDTLI</div>
+                  <div class="swift-code">SWIFT: CERBUGKA</div>
+                </div>
+                <div class="bank-item">
+                  <div class="bank-name"><i class="ti-world mr-2"></i>EURO Account</div>
+                  <div class="account-details">Centenary Bank, Lira Branch</div>
+                  <div class="account-number">A/C: 3100112590</div>
+                  <div class="account-name">BJDTLI</div>
+                  <div class="swift-code">SWIFT: CERBUGKA | IBAN: DE293905000000471539</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/logo main.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown view active">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                About Us
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="the-school.html">The School</a>
+                <a class="dropdown-item" href="background.html">Background</a>
+                <a class="dropdown-item" href="management.html">Management</a>
+                <a class="dropdown-item" href="students.html">Students</a>
+                <a class="dropdown-item active" href="teacher.html">Teachers</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Admission
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="online-application.html">Online Application</a>
+                <a class="dropdown-item" href="requirements.html">Requirements</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Programs
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="programs.html">All Programs</a>
+                <a class="dropdown-item" href="tailoring.html">Tailoring & Fashion Design</a>
+                <a class="dropdown-item" href="fishery.html">Fishery & Aquaculture</a>
+                <a class="dropdown-item" href="hairdressing.html">Hair Dressing & Beauty</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Facilities
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="labs.html">Labs</a>
+                <a class="dropdown-item" href="workshops.html">Workshops</a>
+                <a class="dropdown-item" href="farms.html">Farms</a>
+                <a class="dropdown-item" href="others.html">Other Facilities</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">CONTACT</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- /header -->
+<!-- page title -->
+<section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="list-inline custom-breadcrumb mb-2">
+          <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="teacher.html">Teachers</a></li>
+          <li class="list-inline-item text-white h3 font-secondary nasted" id="breadcrumb-name">Teacher Profile</li>
+        </ul>
+        <p class="text-lighten mb-0">Detailed information about our instructor</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /page title -->
+
+<!-- teacher profile -->
+<section class="section">
+  <div class="container">
+    <!-- Back Button -->
+    <div class="mb-4">
+      <a href="teacher.html" class="back-btn"><i class="ti-arrow-left"></i> Back to Teachers</a>
+    </div>
+    
+    <div class="row">
+      <!-- Profile Card -->
+      <div class="col-lg-4 mb-4">
+        <div class="teacher-profile-card">
+          <div class="teacher-profile-image">
+            <img src="images/teachers/teacher-1.jpg" alt="Teacher" id="teacher-image">
+            <span class="department-badge" id="teacher-department">Department</span>
+          </div>
+          <div class="teacher-profile-content">
+            <h2 id="teacher-name">Teacher Name</h2>
+            <p class="position" id="teacher-position">Position</p>
+            
+            <ul class="contact-info-list">
+              <li>
+                <i class="ti-email"></i>
+                <span id="teacher-email">teacher@bjdlti.ac.ug</span>
+              </li>
+              <li>
+                <i class="ti-mobile"></i>
+                <span id="teacher-phone">+256 700 000000</span>
+              </li>
+              <li>
+                <i class="ti-location-pin"></i>
+                <span>BJDLTI, Lira City</span>
+              </li>
+            </ul>
+            
+            <div class="teacher-social-links">
+              <a href="#"><i class="ti-facebook"></i></a>
+              <a href="#"><i class="ti-twitter-alt"></i></a>
+              <a href="#"><i class="ti-linkedin"></i></a>
+              <a href="#"><i class="ti-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Profile Details -->
+      <div class="col-lg-8">
+        <!-- About -->
+        <div class="info-section">
+          <h4><i class="ti-user mr-2"></i> About</h4>
+          <p class="mb-0" id="teacher-bio">
+            Loading teacher information...
+          </p>
+        </div>
+        
+        <!-- Qualifications -->
+        <div class="info-section">
+          <h4><i class="ti-bookmark-alt mr-2"></i> Qualifications</h4>
+          <ul id="teacher-qualifications">
+            <li><i class="ti-check"></i> Loading...</li>
+          </ul>
+        </div>
+        
+        <!-- Skills -->
+        <div class="info-section">
+          <h4><i class="ti-star mr-2"></i> Skills & Expertise</h4>
+          <div id="teacher-skills">
+            <!-- Skills will be loaded dynamically -->
+          </div>
+        </div>
+        
+        <!-- Courses Taught -->
+        <div class="info-section">
+          <h4><i class="ti-book mr-2"></i> Courses Taught</h4>
+          <div class="row" id="teacher-courses">
+            <!-- Courses will be loaded dynamically -->
+          </div>
+        </div>
+        
+        <!-- Experience -->
+        <div class="info-section">
+          <h4><i class="ti-briefcase mr-2"></i> Experience & Achievements</h4>
+          <ul id="teacher-experience">
+            <li><i class="ti-check"></i> Loading...</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /teacher profile -->
+
+<!-- footer -->
+<footer>
+  <!-- newsletter -->
+  <div class="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
+          <h3 class="text-white">Subscribe Now</h3>
+          <form action="#">
+            <div class="input-wrapper">
+              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
+              <button type="submit" value="send" class="btn btn-primary">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer content -->
+  <div class="footer bg-footer section border-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
+          <!-- logo -->
+          <a class="logo-footer" href="index.html"><img class="img-fluid mb-4" src="images/logo main.png" alt="BJDLTI Logo"></a>
+          <ul class="list-unstyled">
+            <li class="mb-2">Lira City West Division, Ayere Cell, Lira, Uganda</li>
+            <li class="mb-2">+256 773 397356</li>
+            <li class="mb-2">+256 791 088165</li>
+            <li class="mb-2">blessedjildoanddaudi@gmail.com</li>
+          </ul>
+        </div>
+        <!-- about -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">ABOUT</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="the-school.html">The School</a></li>
+            <li class="mb-3"><a class="text-color" href="background.html">Background</a></li>
+            <li class="mb-3"><a class="text-color" href="management.html">Management</a></li>
+            <li class="mb-3"><a class="text-color" href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <!-- programs -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">PROGRAMS</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="tailoring.html">Tailoring & Fashion</a></li>
+            <li class="mb-3"><a class="text-color" href="fishery.html">Fishery & Aquaculture</a></li>
+            <li class="mb-3"><a class="text-color" href="hairdressing.html">Hair Dressing</a></li>
+          </ul>
+        </div>
+        <!-- admission -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">ADMISSION</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="online-application.html">Apply Online</a></li>
+            <li class="mb-3"><a class="text-color" href="requirements.html">Requirements</a></li>
+            <li class="mb-3"><a class="text-color" href="scholarship.html">Scholarships</a></li>
+            <li class="mb-3"><a class="text-color" href="students.html">Student Life</a></li>
+          </ul>
+        </div>
+        <!-- facilities -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">FACILITIES</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="labs.html">Labs</a></li>
+            <li class="mb-3"><a class="text-color" href="workshops.html">Workshops</a></li>
+            <li class="mb-3"><a class="text-color" href="farms.html">Farms</a></li>
+            <li class="mb-3"><a class="text-color" href="others.html">Other Facilities</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- copyright -->
+  <div class="copyright py-4 bg-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+          <p style="color: #fff;" class="mb-0">Copyright
+            <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script>
+            © Blessed Jildo and Daudi LTI. All Rights Reserved.</p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-facebook text-white"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-twitter-alt text-white"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-instagram text-white"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-youtube text-white"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="plugins/mixitup/mixitup.min.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+<!-- Teacher Data and Dynamic Loading Script -->
+<script>
+  // Teacher Database
+  const teachersData = {
+    1: {
+      name: "Fr. Michael James Ebong",
+      position: "Principal / Director",
+      department: "Administration",
+      image: "images/teachers/teacher-1.jpg",
+      email: "principal@bjdlti.ac.ug",
+      phone: "+256 773 397356",
+      bio: "Fr. Michael James Ebong is the founder and spiritual leader of Blessed Jildo and Daudi LTI. With a deep commitment to empowering youth through vocational education, he established the institute to provide practical skills training to young people in the Lira region. His vision is to create self-reliant individuals who can contribute positively to their communities and the nation at large. Fr. Ebong combines spiritual guidance with educational leadership, ensuring that students receive holistic development that encompasses both their professional skills and moral values.",
+      qualifications: [
+        "Master of Theology - Pontifical Urban University, Rome",
+        "Bachelor of Education - Makerere University",
+        "Certificate in Educational Administration",
+        "Ordained Catholic Priest"
+      ],
+      skills: [
+        { name: "Leadership & Administration", level: 95 },
+        { name: "Educational Planning", level: 90 },
+        { name: "Community Development", level: 88 },
+        { name: "Spiritual Guidance", level: 95 }
+      ],
+      courses: [
+        { name: "Ethics & Professional Conduct", description: "Moral values and workplace ethics" },
+        { name: "Leadership Skills", description: "Building future community leaders" }
+      ],
+      experience: [
+        "20+ years in religious and educational leadership",
+        "Founded BJDLTI in 2015",
+        "Trained over 500 youth in vocational skills",
+        "Established partnerships with international organizations",
+        "Led multiple community development projects"
+      ]
+    },
+    2: {
+      name: "Sr. Agnes Akello",
+      position: "Deputy Principal",
+      department: "Administration",
+      image: "images/teachers/teacher-2.jpg",
+      email: "deputy.principal@bjdlti.ac.ug",
+      phone: "+256 791 088165",
+      bio: "Sr. Agnes Akello serves as the Deputy Principal of BJDLTI, overseeing academic programs and student welfare. With extensive experience in educational administration, she ensures that all programs meet the highest standards of quality. Her compassionate approach to student welfare has made her a beloved figure among students and staff alike. She is committed to creating an inclusive learning environment where every student can thrive.",
+      qualifications: [
+        "Bachelor of Education - Kyambogo University",
+        "Diploma in Educational Management",
+        "Certificate in Counseling and Guidance",
+        "Religious Formation Certificate"
+      ],
+      skills: [
+        { name: "Academic Administration", level: 92 },
+        { name: "Student Counseling", level: 90 },
+        { name: "Curriculum Development", level: 85 },
+        { name: "Staff Management", level: 88 }
+      ],
+      courses: [
+        { name: "Student Orientation", description: "Introduction to institute policies and culture" },
+        { name: "Career Guidance", description: "Helping students plan their future careers" }
+      ],
+      experience: [
+        "15+ years in educational administration",
+        "Previously served as Head Teacher at a secondary school",
+        "Implemented student welfare programs",
+        "Coordinated examination processes",
+        "Mentored over 200 students"
+      ]
+    },
+    3: {
+      name: "Mrs. Sarah Achen",
+      position: "Head of Tailoring Department",
+      department: "Tailoring",
+      image: "images/teachers/teacher-3.jpg",
+      email: "tailoring@bjdlti.ac.ug",
+      phone: "+256 700 123456",
+      bio: "Mrs. Sarah Achen heads the Tailoring and Fashion Design department at BJDLTI. With over 15 years of experience in the garment industry, she brings a wealth of practical knowledge to her teaching. She has worked with leading fashion houses in Uganda and has trained numerous successful tailors and fashion designers. Her expertise spans traditional African designs, modern fashion trends, and industrial garment production.",
+      qualifications: [
+        "Diploma in Fashion Design - Nakawa Vocational Training Institute",
+        "Certificate in Pattern Making and Garment Construction",
+        "Advanced Certificate in Industrial Sewing",
+        "Training of Trainers Certificate"
+      ],
+      skills: [
+        { name: "Pattern Making", level: 95 },
+        { name: "Garment Construction", level: 93 },
+        { name: "Fashion Design", level: 90 },
+        { name: "Industrial Sewing", level: 88 }
+      ],
+      courses: [
+        { name: "Basic Tailoring", description: "Introduction to sewing and garment construction" },
+        { name: "Pattern Making", description: "Creating patterns for various garments" },
+        { name: "Fashion Design", description: "Creative design and styling techniques" }
+      ],
+      experience: [
+        "15+ years in the garment industry",
+        "Trained 200+ successful tailors",
+        "Worked with major fashion brands",
+        "Expert in traditional Ugandan attire",
+        "Established a successful tailoring business"
+      ]
+    },
+    4: {
+      name: "Ms. Grace Apio",
+      position: "Tailoring Instructor",
+      department: "Tailoring",
+      image: "images/teachers/teacher-4.jpg",
+      email: "grace.apio@bjdlti.ac.ug",
+      phone: "+256 700 234567",
+      bio: "Ms. Grace Apio is a skilled Tailoring Instructor specializing in traditional African designs and modern fashion techniques. She has a passion for preserving cultural heritage through fashion while embracing contemporary trends. Her creative approach to teaching has helped many students develop unique design perspectives.",
+      qualifications: [
+        "Diploma in Tailoring and Fashion Design",
+        "Certificate in African Textile Design",
+        "Certificate in Modern Fashion Trends"
+      ],
+      skills: [
+        { name: "African Traditional Design", level: 92 },
+        { name: "Embroidery & Embellishment", level: 88 },
+        { name: "Machine Operation", level: 85 },
+        { name: "Creative Design", level: 90 }
+      ],
+      courses: [
+        { name: "Traditional African Wear", description: "Designing and making cultural attire" },
+        { name: "Embroidery Techniques", description: "Decorative stitching and embellishments" }
+      ],
+      experience: [
+        "8+ years as a fashion designer",
+        "Specializes in bridal and ceremonial wear",
+        "Participated in national fashion shows",
+        "Trained students in embroidery techniques"
+      ]
+    },
+    5: {
+      name: "Mr. John Okello",
+      position: "Head of Fishery Department",
+      department: "Fishery",
+      image: "images/teachers/teacher-5.jpg",
+      email: "fishery@bjdlti.ac.ug",
+      phone: "+256 700 345678",
+      bio: "Mr. John Okello leads the Fishery and Aquaculture department with extensive knowledge in sustainable fish farming practices. He has worked with various aquaculture projects across Uganda and East Africa. His expertise in pond management, fish breeding, and commercial fish farming has helped numerous graduates establish successful fish farming enterprises.",
+      qualifications: [
+        "Bachelor of Science in Fisheries and Aquaculture - Makerere University",
+        "Diploma in Aquaculture Management",
+        "Certificate in Sustainable Fishing Practices",
+        "Training of Trainers Certificate"
+      ],
+      skills: [
+        { name: "Fish Pond Management", level: 95 },
+        { name: "Fish Breeding", level: 92 },
+        { name: "Water Quality Management", level: 90 },
+        { name: "Commercial Aquaculture", level: 88 }
+      ],
+      courses: [
+        { name: "Introduction to Aquaculture", description: "Basics of fish farming" },
+        { name: "Pond Construction & Management", description: "Building and maintaining fish ponds" },
+        { name: "Fish Breeding Techniques", description: "Hatchery management and fingerling production" }
+      ],
+      experience: [
+        "12+ years in aquaculture industry",
+        "Managed multiple commercial fish farms",
+        "Trained over 150 fish farmers",
+        "Consultant for government aquaculture projects",
+        "Expert in tilapia and catfish farming"
+      ]
+    },
+    6: {
+      name: "Mr. Peter Otim",
+      position: "Fishery Instructor",
+      department: "Fishery",
+      image: "images/teachers/teacher-6.jpg",
+      email: "peter.otim@bjdlti.ac.ug",
+      phone: "+256 700 456789",
+      bio: "Mr. Peter Otim is an experienced Fishery Instructor with specialized knowledge in fish breeding, hatchery management, and sustainable aquaculture practices. He is passionate about helping students develop practical skills in fish farming and environmental conservation.",
+      qualifications: [
+        "Diploma in Aquaculture",
+        "Certificate in Fish Hatchery Management",
+        "Certificate in Environmental Conservation"
+      ],
+      skills: [
+        { name: "Hatchery Management", level: 90 },
+        { name: "Feed Formulation", level: 85 },
+        { name: "Disease Management", level: 88 },
+        { name: "Environmental Conservation", level: 85 }
+      ],
+      courses: [
+        { name: "Fish Feed & Nutrition", description: "Formulating and preparing fish feeds" },
+        { name: "Fish Health Management", description: "Preventing and treating fish diseases" }
+      ],
+      experience: [
+        "7+ years in fish farming",
+        "Specialized in fingerling production",
+        "Trained in modern aquaculture techniques",
+        "Experience with cage fish farming"
+      ]
+    },
+    7: {
+      name: "Mrs. Rose Adong",
+      position: "Head of Hair Dressing Department",
+      department: "Hair Dressing",
+      image: "images/teachers/teacher-7.jpg",
+      email: "hairdressing@bjdlti.ac.ug",
+      phone: "+256 700 567890",
+      bio: "Mrs. Rose Adong heads the Hair Dressing and Beauty department with expertise in modern and traditional hairstyling. She has worked as a professional beautician for over 10 years and has trained numerous successful salon owners. Her comprehensive approach covers all aspects of hair care, styling, and salon management.",
+      qualifications: [
+        "Diploma in Cosmetology and Hair Dressing",
+        "Certificate in Advanced Hairstyling Techniques",
+        "Certificate in Salon Management",
+        "Training of Trainers Certificate"
+      ],
+      skills: [
+        { name: "Hairstyling", level: 95 },
+        { name: "Hair Treatment", level: 92 },
+        { name: "Braiding & Weaving", level: 93 },
+        { name: "Salon Management", level: 88 }
+      ],
+      courses: [
+        { name: "Basic Hair Care", description: "Fundamentals of hair health and maintenance" },
+        { name: "Professional Styling", description: "Modern and traditional hairstyling techniques" },
+        { name: "Salon Management", description: "Running a successful beauty business" }
+      ],
+      experience: [
+        "10+ years as a professional beautician",
+        "Owned and managed multiple salons",
+        "Trained over 100 hairdressers",
+        "Expert in African hairstyles",
+        "Celebrity hair stylist"
+      ]
+    },
+    8: {
+      name: "Ms. Mary Amuge",
+      position: "Beauty & Cosmetology Instructor",
+      department: "Hair Dressing",
+      image: "images/teachers/teacher-8.jpg",
+      email: "mary.amuge@bjdlti.ac.ug",
+      phone: "+256 700 678901",
+      bio: "Ms. Mary Amuge is a talented Beauty and Cosmetology Instructor specializing in makeup artistry, skincare, and nail care techniques. Her creative skills and attention to detail have helped students master the art of beauty enhancement.",
+      qualifications: [
+        "Diploma in Cosmetology",
+        "Certificate in Makeup Artistry",
+        "Certificate in Nail Technology",
+        "Certificate in Skincare"
+      ],
+      skills: [
+        { name: "Makeup Artistry", level: 93 },
+        { name: "Skincare", level: 88 },
+        { name: "Nail Art & Manicure", level: 90 },
+        { name: "Bridal Beauty", level: 92 }
+      ],
+      courses: [
+        { name: "Makeup Artistry", description: "Professional makeup application techniques" },
+        { name: "Nail Care & Art", description: "Manicure, pedicure, and nail decoration" },
+        { name: "Skincare Basics", description: "Facial treatments and skin health" }
+      ],
+      experience: [
+        "6+ years in beauty industry",
+        "Professional bridal makeup artist",
+        "Trained in international beauty techniques",
+        "Experience in spa treatments"
+      ]
+    },
+    9: {
+      name: "Mr. David Opio",
+      position: "Bursar / Finance Officer",
+      department: "Administration",
+      image: "images/teachers/teacher-9.jpg",
+      email: "bursar@bjdlti.ac.ug",
+      phone: "+256 700 789012",
+      bio: "Mr. David Opio serves as the Bursar and Finance Officer at BJDLTI, managing institutional finances, student fees, and procurement. His expertise in financial management ensures the smooth operation of all fiscal matters at the institute.",
+      qualifications: [
+        "Bachelor of Commerce - Makerere University",
+        "Diploma in Accounting",
+        "Certificate in Financial Management",
+        "CPA Uganda"
+      ],
+      skills: [
+        { name: "Financial Management", level: 92 },
+        { name: "Accounting", level: 95 },
+        { name: "Procurement", level: 85 },
+        { name: "Budget Planning", level: 90 }
+      ],
+      courses: [
+        { name: "Basic Bookkeeping", description: "Introduction to financial record keeping" },
+        { name: "Business Finance", description: "Managing finances for small businesses" }
+      ],
+      experience: [
+        "10+ years in financial management",
+        "Experience in educational institution finance",
+        "Expert in budgeting and forecasting",
+        "Managed donor-funded projects"
+      ]
+    }
+  };
+
+  // Function to load teacher data
+  function loadTeacherProfile() {
+    // Get teacher ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const teacherId = urlParams.get('id') || '1';
+    
+    // Get teacher data
+    const teacher = teachersData[teacherId];
+    
+    if (!teacher) {
+      // Redirect to teachers page if teacher not found
+      window.location.href = 'teacher.html';
+      return;
+    }
+    
+    // Update page title
+    document.title = teacher.name + ' - BJDLTI';
+    
+    // Update breadcrumb
+    document.getElementById('breadcrumb-name').textContent = teacher.name;
+    
+    // Update profile card
+    document.getElementById('teacher-image').src = teacher.image;
+    document.getElementById('teacher-image').alt = teacher.name;
+    document.getElementById('teacher-name').textContent = teacher.name;
+    document.getElementById('teacher-position').textContent = teacher.position;
+    document.getElementById('teacher-department').textContent = teacher.department;
+    document.getElementById('teacher-email').textContent = teacher.email;
+    document.getElementById('teacher-phone').textContent = teacher.phone;
+    
+    // Update bio
+    document.getElementById('teacher-bio').textContent = teacher.bio;
+    
+    // Update qualifications
+    const qualificationsList = document.getElementById('teacher-qualifications');
+    qualificationsList.innerHTML = teacher.qualifications.map(q => 
+      `<li><i class="ti-check"></i> ${q}</li>`
+    ).join('');
+    
+    // Update skills
+    const skillsContainer = document.getElementById('teacher-skills');
+    skillsContainer.innerHTML = teacher.skills.map(skill => `
+      <div class="skill-bar">
+        <div class="skill-name">
+          <span>${skill.name}</span>
+          <span>${skill.level}%</span>
+        </div>
+        <div class="skill-progress">
+          <div class="progress-fill" style="width: ${skill.level}%"></div>
+        </div>
+      </div>
+    `).join('');
+    
+    // Update courses
+    const coursesContainer = document.getElementById('teacher-courses');
+    coursesContainer.innerHTML = teacher.courses.map(course => `
+      <div class="col-md-6">
+        <div class="course-mini-card">
+          <h5><i class="ti-agenda mr-2 text-primary"></i>${course.name}</h5>
+          <p>${course.description}</p>
+        </div>
+      </div>
+    `).join('');
+    
+    // Update experience
+    const experienceList = document.getElementById('teacher-experience');
+    experienceList.innerHTML = teacher.experience.map(exp => 
+      `<li><i class="ti-check"></i> ${exp}</li>`
+    ).join('');
+  }
+  
+  // Load profile when page loads
+  document.addEventListener('DOMContentLoaded', loadTeacherProfile);
+</script>
+
+</body>
+</html>

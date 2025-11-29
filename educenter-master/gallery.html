@@ -1,0 +1,2524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Gallery - Blessed Jildo and Daudi LTI</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <!-- animation css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- aos -->
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+
+  <!-- Main Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <!-- Gallery Specific Styles -->
+  <style>
+    /* ===== GALLERY HERO SECTION ===== */
+    .gallery-hero {
+      background: linear-gradient(135deg, rgba(26, 26, 26, 0.85), rgba(0, 0, 0, 0.75)), url('images/banner/banner-1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 180px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .gallery-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    
+    .gallery-hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .gallery-hero p {
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.9);
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .gallery-hero .camera-icon {
+      font-size: 5rem;
+      color: rgba(255,255,255,0.2);
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* ===== GALLERY STATS ===== */
+    .gallery-stats {
+      background: #fff;
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      padding: 40px;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      border-right: 1px solid #eee;
+    }
+    
+    .stat-item:last-child {
+      border-right: none;
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #00bcd4, #28a745);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .stat-label {
+      color: #666;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 5px;
+    }
+
+    /* ===== FILTER BUTTONS ===== */
+    .gallery-filter {
+      padding: 60px 0 40px;
+      background: #f8f9fa;
+    }
+    
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .filter-btn {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 50px;
+      background: #fff;
+      color: #333;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .filter-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 188, 212, 0.25);
+    }
+    
+    .filter-btn.active,
+    .filter-btn.mixitup-control-active {
+      background: linear-gradient(135deg, #1a1a1a, #00bcd4);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 188, 212, 0.4);
+    }
+    
+    .filter-btn i {
+      margin-right: 8px;
+    }
+
+    /* ===== SEARCH & VIEW OPTIONS ===== */
+    .gallery-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .search-box {
+      position: relative;
+      flex: 1;
+      max-width: 400px;
+    }
+    
+    .search-box input {
+      width: 100%;
+      padding: 15px 20px 15px 50px;
+      border: 2px solid #eee;
+      border-radius: 50px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: #fff;
+    }
+    
+    .search-box input:focus {
+      border-color: #00bcd4;
+      box-shadow: 0 5px 20px rgba(0, 188, 212, 0.2);
+      outline: none;
+    }
+    
+    .search-box i {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      font-size: 1.2rem;
+    }
+    
+    .view-options {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .view-btn {
+      width: 45px;
+      height: 45px;
+      border: 2px solid #eee;
+      border-radius: 10px;
+      background: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .view-btn:hover,
+    .view-btn.active {
+      border-color: #00bcd4;
+      color: #00bcd4;
+    }
+    
+    .view-btn.active {
+      background: linear-gradient(135deg, #1a1a1a, #00bcd4);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    /* ===== GALLERY GRID ===== */
+    .gallery-section {
+      padding: 40px 0 100px;
+      background: #f8f9fa;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      transition: all 0.5s ease;
+    }
+    
+    .gallery-grid.view-large {
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    }
+    
+    .gallery-grid.view-small {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    /* ===== GALLERY ITEM ===== */
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 60px rgba(0, 188, 212, 0.3);
+    }
+    
+    .gallery-item .image-wrapper {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.15);
+    }
+    
+    .gallery-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(26, 26, 26, 0.92) 100%);
+      opacity: 0;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 25px;
+    }
+    
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+    
+    .overlay-content h4 {
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.4s ease 0.1s;
+    }
+    
+    .overlay-content p {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.4s ease 0.2s;
+    }
+    
+    .gallery-item:hover .overlay-content h4,
+    .gallery-item:hover .overlay-content p {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .overlay-actions {
+      display: flex;
+      gap: 10px;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.4s ease 0.3s;
+    }
+    
+    .gallery-item:hover .overlay-actions {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .overlay-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      border: 2px solid rgba(255,255,255,0.5);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+    .overlay-btn:hover {
+      background: #fff;
+      color: #00bcd4;
+      transform: scale(1.1);
+    }
+    
+    /* Category Badge */
+    .category-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding: 8px 16px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.95);
+      color: #1a1a1a;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      z-index: 5;
+    }
+    
+    /* Like Button */
+    .like-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 5;
+      color: #ccc;
+    }
+    
+    .like-btn:hover,
+    .like-btn.liked {
+      color: #28a745;
+      transform: scale(1.15);
+    }
+    
+    .like-btn.liked {
+      animation: heartBeat 0.6s ease;
+    }
+    
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.3); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.2); }
+    }
+
+    /* ===== LOAD MORE BUTTON ===== */
+    .load-more-section {
+      text-align: center;
+      padding: 60px 0;
+      background: #f8f9fa;
+    }
+    
+    .load-more-btn {
+      padding: 18px 50px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #1a1a1a, #00bcd4);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0, 188, 212, 0.35);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .load-more-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0, 188, 212, 0.5);
+    }
+    
+    .load-more-btn i {
+      margin-left: 10px;
+    }
+    
+    .load-more-btn.btn-success {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      cursor: default;
+    }
+    
+    .load-more-btn.btn-success:hover {
+      transform: none;
+      box-shadow: 0 8px 30px rgba(40, 167, 69, 0.4);
+    }
+    
+    .load-more-btn:disabled {
+      opacity: 0.8;
+    }
+    
+    .load-more-btn i.ti-spin {
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .images-count {
+      color: #666;
+      margin-top: 20px;
+      font-size: 0.95rem;
+    }
+    
+    .remaining-count {
+      color: #00bcd4;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    
+    .remaining-count i {
+      color: #28a745;
+    }
+
+    /* ===== LIGHTBOX CUSTOMIZATION ===== */
+    .vbox-content {
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    /* ===== MASONRY LAYOUT OPTION ===== */
+    .gallery-grid.masonry {
+      display: block;
+      column-count: 3;
+      column-gap: 25px;
+    }
+    
+    .gallery-grid.masonry .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 25px;
+    }
+    
+    .gallery-grid.masonry .gallery-item .image-wrapper {
+      aspect-ratio: unset;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 992px) {
+      .gallery-hero h1 {
+        font-size: 3rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+      
+      .gallery-grid.masonry {
+        column-count: 2;
+      }
+      
+      .stat-item {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding: 15px;
+      }
+      
+      .stat-item:last-child {
+        border-bottom: none;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .gallery-hero {
+        padding: 150px 0 80px;
+      }
+      
+      .gallery-hero h1 {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+      }
+      
+      .gallery-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .search-box {
+        max-width: 100%;
+      }
+      
+      .view-options {
+        justify-content: center;
+      }
+      
+      .gallery-grid.masonry {
+        column-count: 1;
+      }
+      
+      .filter-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+      }
+    }
+
+    /* ===== NO RESULTS ===== */
+    .no-results {
+      text-align: center;
+      padding: 80px 20px;
+      display: none;
+    }
+    
+    .no-results.show {
+      display: block;
+    }
+    
+    .no-results i {
+      font-size: 5rem;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+    
+    .no-results h3 {
+      color: #666;
+      margin-bottom: 10px;
+    }
+    
+    .no-results p {
+      color: #999;
+    }
+
+    /* ===== ANIMATED GRADIENT BORDER ===== */
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(135deg, #00bcd4, #28a745, #1a1a1a, #00bcd4);
+      background-size: 400% 400%;
+      border-radius: 23px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      animation: gradientShift 3s ease infinite;
+    }
+    
+    .gallery-item:hover::before {
+      opacity: 1;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* Scroll Reveal Animation */
+    .gallery-item {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .gallery-item.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+  </style>
+</head>
+
+<body>
+  
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class="top-header py-2 bg-dark-header">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-lg-4 text-center text-lg-left">
+          <a class="text-color mr-3" href="callto:+256773397356"><strong>CALL</strong> +256 773 397356</a>
+          <ul class="list-inline d-inline">
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-facebook"></i></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-twitter-alt"></i></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-linkedin"></i></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-instagram"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8 text-center text-lg-right">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="notice.html">notice</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="research.html">research</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="scholarship.html">SCHOLARSHIP</a></li>
+            
+            <li class="list-inline-item dropdown">
+              <a class="btn btn-donate dropdown-toggle" href="#" role="button" id="donateDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="ti-heart"></i> Donate
+              </a>
+              <div class="dropdown-menu dropdown-menu-right donate-dropdown" aria-labelledby="donateDropdown">
+                <div class="dropdown-header"><i class="ti-gift mr-2"></i>BJDLTI Bank Account Details</div>
+                <div class="bank-item">
+                  <div class="bank-name"><i class="ti-credit-card mr-2"></i>UGX (Shillings) Account</div>
+                  <div class="account-details">Centenary Bank, Lira Branch</div>
+                  <div class="account-number">A/C: 3100112588</div>
+                  <div class="account-name">BJDTLI</div>
+                </div>
+                <div class="bank-item">
+                  <div class="bank-name"><i class="ti-world mr-2"></i>USD Account</div>
+                  <div class="account-details">Centenary Bank, Lira Branch</div>
+                  <div class="account-number">A/C: 3100112589</div>
+                  <div class="account-name">BJDTLI</div>
+                  <div class="swift-code">SWIFT: CERBUGKA</div>
+                </div>
+                <div class="bank-item">
+                  <div class="bank-name"><i class="ti-world mr-2"></i>EURO Account</div>
+                  <div class="account-details">Centenary Bank, Lira Branch</div>
+                  <div class="account-number">A/C: 3100112590</div>
+                  <div class="account-name">BJDTLI</div>
+                  <div class="swift-code">SWIFT: CERBUGKA | IBAN: DE293905000000471539</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="index.html"><img src="images/logo main.png" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                About Us
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="the-school.html">The School</a>
+                <a class="dropdown-item" href="background.html">Background</a>
+                <a class="dropdown-item" href="management.html">Management</a>
+                <a class="dropdown-item" href="students.html">Students</a>
+                <a class="dropdown-item" href="teacher.html">Teacher</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Admission
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="online-application.html">Online Application</a>
+                <a class="dropdown-item" href="requirements.html">Requirements</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Programs
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="programs.html">All Programs</a>
+                <a class="dropdown-item" href="tailoring.html">Tailoring & Fashion Design</a>
+                <a class="dropdown-item" href="fishery.html">Fishery & Aquaculture</a>
+                <a class="dropdown-item" href="hairdressing.html">Hair Dressing & Beauty</a>
+              </div>
+            </li>
+             <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Facilities
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="labs.html">Labs</a>
+                <a class="dropdown-item" href="workshops.html">Workshops</a>
+                <a class="dropdown-item" href="farms.html">Farms</a>
+                <a class="dropdown-item" href="others.html">Other Facilities</a>
+              </div>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">CONTACT</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- /header -->
+
+<!-- Gallery Hero Section -->
+<section class="gallery-hero">
+  <div class="container">
+    <i class="ti-camera camera-icon"></i>
+    <h1 data-aos="fade-up">Photo Gallery</h1>
+    <p data-aos="fade-up" data-aos-delay="100">Capturing memories and moments at Blessed Jildo and Daudi LTI</p>
+  </div>
+</section>
+
+<!-- Gallery Stats -->
+<section class="container">
+  <div class="gallery-stats" data-aos="fade-up" data-aos-delay="200">
+    <div class="row">
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <div class="stat-number" id="totalPhotos">217+</div>
+          <div class="stat-label">Photos</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <div class="stat-number">7</div>
+          <div class="stat-label">Categories</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Events</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-item">
+          <div class="stat-number">2025</div>
+          <div class="stat-label">Latest</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter Section -->
+<section class="gallery-filter">
+  <div class="container">
+    <div class="filter-buttons" data-aos="fade-up">
+      <button class="filter-btn active" data-filter="all">
+        <i class="ti-layout-grid2"></i> All Photos
+      </button>
+      <button class="filter-btn" data-filter=".campus">
+        <i class="ti-home"></i> Campus
+      </button>
+      <button class="filter-btn" data-filter=".events">
+        <i class="ti-calendar"></i> Events
+      </button>
+      <button class="filter-btn" data-filter=".students">
+        <i class="ti-user"></i> Students
+      </button>
+      <button class="filter-btn" data-filter=".programs">
+        <i class="ti-book"></i> Programs
+      </button>
+      <button class="filter-btn" data-filter=".facilities">
+        <i class="ti-package"></i> Facilities
+      </button>
+      <button class="filter-btn" data-filter=".activities">
+        <i class="ti-flag-alt"></i> Activities
+      </button>
+      <button class="filter-btn" data-filter=".prayers">
+        <i class="ti-heart"></i> Prayers
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery-section">
+  <div class="container">
+    <!-- Controls -->
+    <div class="gallery-controls" data-aos="fade-up">
+      <div class="search-box">
+        <i class="ti-search"></i>
+        <input type="text" id="gallerySearch" placeholder="Search photos...">
+      </div>
+      <div class="view-options">
+        <button class="view-btn" data-view="small" title="Small Grid">
+          <i class="ti-layout-grid4-alt"></i>
+        </button>
+        <button class="view-btn active" data-view="medium" title="Medium Grid">
+          <i class="ti-layout-grid3-alt"></i>
+        </button>
+        <button class="view-btn" data-view="large" title="Large Grid">
+          <i class="ti-layout-grid2-alt"></i>
+        </button>
+        <button class="view-btn" data-view="masonry" title="Masonry">
+          <i class="ti-layout-column3-alt"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- No Results Message -->
+    <div class="no-results" id="noResults">
+      <i class="ti-image"></i>
+      <h3>No photos found</h3>
+      <p>Try adjusting your search or filter criteria</p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="galleryGrid">
+      
+      <!-- ROW 1: Campus Photos -->
+      <div class="gallery-item campus" data-aos="fade-up">
+        <span class="category-badge">Campus</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.42.54_3bd95a1c.jpg" title="Campus Life at BJDLTI">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.42.54_3bd95a1c.jpg" alt="Campus Life at BJDLTI" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Campus Life</h4>
+                <p>The heart of BJDLTI campus</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item campus" data-aos="fade-up" data-aos-delay="50">
+        <span class="category-badge">Campus</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.42.57_ab280b0e.jpg" title="BJDLTI Campus View">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.42.57_ab280b0e.jpg" alt="BJDLTI Campus View" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Campus View</h4>
+                <p>Where leadership guides excellence</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item campus" data-aos="fade-up" data-aos-delay="100">
+        <span class="category-badge">Campus</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.12_26ee2d2d.jpg" title="Campus Grounds">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.12_26ee2d2d.jpg" alt="Campus Grounds" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Campus Grounds</h4>
+                <p>Beautiful green spaces</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW 2: Prayers -->
+      <div class="gallery-item prayers" data-aos="fade-up" data-aos-delay="150">
+        <span class="category-badge">Prayers</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.20_e532a900.jpg" title="Prayer Session">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.20_e532a900.jpg" alt="Prayer Session" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Prayer Session</h4>
+                <p>Students in devotion</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item prayers" data-aos="fade-up" data-aos-delay="200">
+        <span class="category-badge">Prayers</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.33_1fbf05c2.jpg" title="Morning Prayers">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.33_1fbf05c2.jpg" alt="Morning Prayers" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Morning Prayers</h4>
+                <p>Starting the day with faith</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item prayers" data-aos="fade-up" data-aos-delay="250">
+        <span class="category-badge">Prayers</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.34_9f94e4ed.jpg" title="Chapel Service">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.34_9f94e4ed.jpg" alt="Chapel Service" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Chapel Service</h4>
+                <p>Spiritual gathering</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item prayers" data-aos="fade-up" data-aos-delay="300">
+        <span class="category-badge">Prayers</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.35_c0d76472.jpg" title="Devotion Time">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.35_c0d76472.jpg" alt="Devotion Time" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Devotion Time</h4>
+                <p>Moments of reflection</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW 3: Students -->
+      <div class="gallery-item students" data-aos="fade-up" data-aos-delay="350">
+        <span class="category-badge">Students</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.36_224aaed0.jpg" title="Student Activities">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.36_224aaed0.jpg" alt="Student Activities" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Student Life</h4>
+                <p>Learning through practice</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item students" data-aos="fade-up" data-aos-delay="400">
+        <span class="category-badge">Students</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.36_36a4e6c1.jpg" title="Classroom Session">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.36_36a4e6c1.jpg" alt="Classroom Session" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Classroom Session</h4>
+                <p>Interactive learning environment</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item students" data-aos="fade-up" data-aos-delay="450">
+        <span class="category-badge">Students</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.36_64d77dd3.jpg" title="Group Learning">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.36_64d77dd3.jpg" alt="Group Learning" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Group Learning</h4>
+                <p>Collaborative education</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW 4: Programs -->
+      <div class="gallery-item programs" data-aos="fade-up" data-aos-delay="500">
+        <span class="category-badge">Programs</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.38_5d82e617.jpg" title="Tailoring Program">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.38_5d82e617.jpg" alt="Tailoring Program" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Tailoring & Fashion</h4>
+                <p>Students learning fashion design</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item programs" data-aos="fade-up" data-aos-delay="550">
+        <span class="category-badge">Programs</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.39_3c1e3f37.jpg" title="Fashion Workshop">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.39_3c1e3f37.jpg" alt="Fashion Workshop" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Fashion Workshop</h4>
+                <p>Creative skills development</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item programs" data-aos="fade-up" data-aos-delay="600">
+        <span class="category-badge">Programs</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.40_bf7854af.jpg" title="Hair Dressing Class">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.40_bf7854af.jpg" alt="Hair Dressing Class" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Hair Dressing & Beauty</h4>
+                <p>Professional beauty training</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item programs" data-aos="fade-up" data-aos-delay="650">
+        <span class="category-badge">Programs</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.40_fa03a6a2.jpg" title="Fishery Program">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.40_fa03a6a2.jpg" alt="Fishery Program" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Fishery & Aquaculture</h4>
+                <p>Sustainable fish farming</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item programs" data-aos="fade-up" data-aos-delay="700">
+        <span class="category-badge">Programs</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.41_ee529460.jpg" title="Practical Training">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.41_ee529460.jpg" alt="Practical Training" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Practical Training</h4>
+                <p>Hands-on skills development</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item programs" data-aos="fade-up" data-aos-delay="750">
+        <span class="category-badge">Programs</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.43_de30bba0.jpg" title="Skills Workshop">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.43_de30bba0.jpg" alt="Skills Workshop" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Skills Workshop</h4>
+                <p>Building future careers</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW 5: Graduation -->
+      <div class="gallery-item graduation" data-aos="fade-up">
+        <span class="category-badge">Graduation</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.44_351e70e6.jpg" title="Graduation Day 2024">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.44_351e70e6.jpg" alt="Graduation Day 2024" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Graduation Day 2024</h4>
+                <p>Celebrating our graduates</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item graduation" data-aos="fade-up" data-aos-delay="50">
+        <span class="category-badge">Graduation</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.46_6235e9e0.jpg" title="Certificate Ceremony">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.46_6235e9e0.jpg" alt="Certificate Ceremony" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Certificate Ceremony</h4>
+                <p>Achievement recognition</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item graduation" data-aos="fade-up" data-aos-delay="100">
+        <span class="category-badge">Graduation</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.47_2daab6d4.jpg" title="Award Recipients">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.47_2daab6d4.jpg" alt="Award Recipients" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Award Recipients</h4>
+                <p>Excellence recognized</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW 6: Sports -->
+      <div class="gallery-item sports" data-aos="fade-up" data-aos-delay="150">
+        <span class="category-badge">Sports</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.48_fb91d772.jpg" title="Sports Day">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.48_fb91d772.jpg" alt="Sports Day" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Sports Day</h4>
+                <p>Inter-school competition</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item sports" data-aos="fade-up" data-aos-delay="200">
+        <span class="category-badge">Sports</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.50_a4ada507.jpg" title="Athletics">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.43.50_a4ada507.jpg" alt="Athletics" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Athletics Competition</h4>
+                <p>Track and field events</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item sports" data-aos="fade-up" data-aos-delay="250">
+        <span class="category-badge">Sports</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.09_7af30783.jpg" title="Team Sports">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.09_7af30783.jpg" alt="Team Sports" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Team Sports</h4>
+                <p>Team spirit in action</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item sports" data-aos="fade-up" data-aos-delay="300">
+        <span class="category-badge">Sports</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.11_d7b9c72e.jpg" title="Sports Day Winners">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.11_d7b9c72e.jpg" alt="Sports Day Winners" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Sports Day Winners</h4>
+                <p>Champions celebrated</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW 7: Facilities -->
+      <div class="gallery-item facilities" data-aos="fade-up" data-aos-delay="350">
+        <span class="category-badge">Facilities</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.15_ea8f3a2b.jpg" title="Workshop">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.15_ea8f3a2b.jpg" alt="Workshop" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Modern Workshop</h4>
+                <p>State-of-the-art equipment</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item facilities" data-aos="fade-up" data-aos-delay="400">
+        <span class="category-badge">Facilities</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.19_a07aed46.jpg" title="Laboratory">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.19_a07aed46.jpg" alt="Laboratory" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Science Laboratory</h4>
+                <p>Research and experiments</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item facilities" data-aos="fade-up" data-aos-delay="450">
+        <span class="category-badge">Facilities</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.20_b2980a2c.jpg" title="Library">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.20_b2980a2c.jpg" alt="Library" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Library</h4>
+                <p>Knowledge center</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item facilities" data-aos="fade-up" data-aos-delay="500">
+        <span class="category-badge">Facilities</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.22_3e67d21d.jpg" title="Computer Lab">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.22_3e67d21d.jpg" alt="Computer Lab" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Computer Laboratory</h4>
+                <p>Modern computing facilities</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item facilities" data-aos="fade-up" data-aos-delay="550">
+        <span class="category-badge">Facilities</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.22_7d8ff917.jpg" title="Sewing Room">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.22_7d8ff917.jpg" alt="Sewing Room" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Sewing Workshop</h4>
+                <p>Fashion design studio</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item facilities" data-aos="fade-up" data-aos-delay="600">
+        <span class="category-badge">Facilities</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.23_503a7dab.jpg" title="Fish Pond">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.23_503a7dab.jpg" alt="Fish Pond" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Fish Pond Farm</h4>
+                <p>Aquaculture training facility</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW 8: More Campus -->
+      <div class="gallery-item campus" data-aos="fade-up" data-aos-delay="650">
+        <span class="category-badge">Campus</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.24_508b2cae.jpg" title="Campus Entrance">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.24_508b2cae.jpg" alt="Campus Entrance" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Campus Entrance</h4>
+                <p>Welcome to BJDLTI</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item campus" data-aos="fade-up" data-aos-delay="700">
+        <span class="category-badge">Campus</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.26_38bfa1e4.jpg" title="Success Stories">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.26_38bfa1e4.jpg" alt="Success Stories" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Success Stories</h4>
+                <p>Alumni achievements</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW 9: More Activities -->
+      <div class="gallery-item campus" data-aos="fade-up" data-aos-delay="750">
+        <span class="category-badge">Campus</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.27_4fd2e39b.jpg" title="Campus View">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.27_4fd2e39b.jpg" alt="Campus View" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Campus Panorama</h4>
+                <p>Bird's eye view</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item campus" data-aos="fade-up">
+        <span class="category-badge">Campus</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.29_c614672e.jpg" title="Institution Overview">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.29_c614672e.jpg" alt="Institution Overview" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Institution Overview</h4>
+                <p>BJDLTI from above</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW 10: Events -->
+      <div class="gallery-item events" data-aos="fade-up" data-aos-delay="50">
+        <span class="category-badge">Events</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.30_b5baf9db.jpg" title="News Event">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.30_b5baf9db.jpg" alt="News Event" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Institute News</h4>
+                <p>Latest happenings</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item events" data-aos="fade-up" data-aos-delay="100">
+        <span class="category-badge">Events</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.32_9dbbe1f8.jpg" title="Community Event">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.32_9dbbe1f8.jpg" alt="Community Event" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Community Outreach</h4>
+                <p>Serving the community</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item events" data-aos="fade-up" data-aos-delay="150">
+        <span class="category-badge">Events</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.34_d8d549ca.jpg" title="Achievement">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.34_d8d549ca.jpg" alt="Achievement" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Student Achievement</h4>
+                <p>Celebrating success</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item events" data-aos="fade-up" data-aos-delay="200">
+        <span class="category-badge">Events</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.35_d62a79e5.jpg" title="Special Program">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.35_d62a79e5.jpg" alt="Special Program" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Special Program</h4>
+                <p>Featured event</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW 11: More Graduation -->
+      <div class="gallery-item graduation" data-aos="fade-up" data-aos-delay="250">
+        <span class="category-badge">Graduation</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.36_61632466.jpg" title="Scholarship Award">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.36_61632466.jpg" alt="Scholarship Award" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Scholarship Award</h4>
+                <p>Supporting education</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item graduation" data-aos="fade-up" data-aos-delay="300">
+        <span class="category-badge">Graduation</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.37_66a56ec9.jpg" title="Graduation Ceremony">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.37_66a56ec9.jpg" alt="Graduation Ceremony" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Graduation Ceremony</h4>
+                <p>Proud moments</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- ROW 12: More Photos -->
+      <div class="gallery-item campus" data-aos="fade-up" data-aos-delay="350">
+        <span class="category-badge">Campus</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.39_f187e48a.jpg" title="Campus Tour">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.39_f187e48a.jpg" alt="Campus Tour" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Virtual Campus Tour</h4>
+                <p>Explore our facilities</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- More Gallery Items from November 26 images -->
+      
+      <div class="gallery-item students" data-aos="fade-up" data-aos-delay="400">
+        <span class="category-badge">Students</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.40_dbc6a3a0.jpg" title="Student Group Photo">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.40_dbc6a3a0.jpg" alt="Student Group Photo" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Student Group Photo</h4>
+                <p>Class of 2024</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item programs" data-aos="fade-up" data-aos-delay="450">
+        <span class="category-badge">Programs</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.42_63eaeb38.jpg" title="Training Session">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-20%20at%2020.44.42_63eaeb38.jpg" alt="Training Session" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Skills Training</h4>
+                <p>Practical sessions</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item facilities" data-aos="fade-up" data-aos-delay="500">
+        <span class="category-badge">Facilities</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.22_fa5c1c3b.jpg" title="Dormitory">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.22_fa5c1c3b.jpg" alt="Dormitory" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Student Dormitory</h4>
+                <p>Comfortable accommodation</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item events" data-aos="fade-up" data-aos-delay="550">
+        <span class="category-badge">Events</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.23_478e957c.jpg" title="Founders Day">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.23_478e957c.jpg" alt="Founders Day" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Founders Day</h4>
+                <p>Honoring our heritage</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item sports" data-aos="fade-up" data-aos-delay="600">
+        <span class="category-badge">Sports</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.23_dfa09e41.jpg" title="Netball Team">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.23_dfa09e41.jpg" alt="Netball Team" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Netball Team</h4>
+                <p>Champions 2024</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Additional Gallery Items from November 26 -->
+      <div class="gallery-item campus" data-aos="fade-up" data-aos-delay="650">
+        <span class="category-badge">Campus</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.24_16e8ccda.jpg" title="Campus Life">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.24_16e8ccda.jpg" alt="Campus Life" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Campus Life</h4>
+                <p>Daily activities</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item students" data-aos="fade-up" data-aos-delay="700">
+        <span class="category-badge">Students</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.24_50e14a41.jpg" title="Student Activities">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.24_50e14a41.jpg" alt="Student Activities" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Student Activities</h4>
+                <p>Learning and fun</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item programs" data-aos="fade-up" data-aos-delay="750">
+        <span class="category-badge">Programs</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.24_7647f9d1.jpg" title="Program Activities">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.24_7647f9d1.jpg" alt="Program Activities" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Program Activities</h4>
+                <p>Skills development</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item events" data-aos="fade-up" data-aos-delay="800">
+        <span class="category-badge">Events</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.25_c43cb345.jpg" title="School Event">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.25_c43cb345.jpg" alt="School Event" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>School Event</h4>
+                <p>Community gathering</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item graduation" data-aos="fade-up" data-aos-delay="850">
+        <span class="category-badge">Graduation</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.26_1a5b3597.jpg" title="Graduation">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.26_1a5b3597.jpg" alt="Graduation" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>Graduation Ceremony</h4>
+                <p>Celebrating success</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-item facilities" data-aos="fade-up" data-aos-delay="900">
+        <span class="category-badge">Facilities</span>
+        <button class="like-btn" onclick="toggleLike(this)"><i class="ti-heart"></i></button>
+        <div class="image-wrapper">
+          <a class="venobox" data-gall="gallery" href="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.27_b867cc50.jpg" title="School Facility">
+            <img src="images/gallery/WhatsApp%20Image%202025-11-26%20at%2017.27.27_b867cc50.jpg" alt="School Facility" loading="lazy">
+            <div class="overlay">
+              <div class="overlay-content">
+                <h4>School Facilities</h4>
+                <p>Modern infrastructure</p>
+              </div>
+              <div class="overlay-actions">
+                <span class="overlay-btn"><i class="ti-fullscreen"></i></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Load More -->
+    <div class="load-more-section">
+      <button class="load-more-btn btn-primary" id="loadMoreBtn">
+        Load More Photos <i class="ti-reload"></i>
+      </button>
+      <p class="images-count">Showing <span id="visibleCount">51</span> of <span id="totalCount">51</span> photos</p>
+      <p class="remaining-count">166 more photos available</p>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <!-- newsletter -->
+  <div class="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
+          <h3 class="text-white">Subscribe Now</h3>
+          <form action="#">
+            <div class="input-wrapper">
+              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
+              <button type="submit" value="send" class="btn btn-primary">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer content -->
+  <div class="footer bg-footer section border-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
+          <!-- logo -->
+          <a class="logo-footer" href="index.html"><img class="img-fluid mb-4" src="images/logo main.png" alt="BJDLTI Logo"></a>
+          <ul class="list-unstyled">
+            <li class="mb-2">Lira City West Division, Ayere Cell, Lira, Uganda</li>
+            <li class="mb-2">+256 773 397356</li>
+            <li class="mb-2">+256 791 088165</li>
+            <li class="mb-2">blessedjildoanddaudi@gmail.com</li>
+          </ul>
+        </div>
+        <!-- about -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">ABOUT</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="the-school.html">The School</a></li>
+            <li class="mb-3"><a class="text-color" href="background.html">Background</a></li>
+            <li class="mb-3"><a class="text-color" href="management.html">Management</a></li>
+            <li class="mb-3"><a class="text-color" href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <!-- programs -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">PROGRAMS</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="tailoring.html">Tailoring & Fashion</a></li>
+            <li class="mb-3"><a class="text-color" href="fishery.html">Fishery & Aquaculture</a></li>
+            <li class="mb-3"><a class="text-color" href="hairdressing.html">Hair Dressing</a></li>
+          </ul>
+        </div>
+        <!-- admission -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">ADMISSION</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="online-application.html">Apply Online</a></li>
+            <li class="mb-3"><a class="text-color" href="requirements.html">Requirements</a></li>
+            <li class="mb-3"><a class="text-color" href="scholarship.html">Scholarships</a></li>
+            <li class="mb-3"><a class="text-color" href="students.html">Student Life</a></li>
+          </ul>
+        </div>
+        <!-- facilities -->
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+          <h4 class="text-white mb-5">FACILITIES</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="labs.html">Labs</a></li>
+            <li class="mb-3"><a class="text-color" href="workshops.html">Workshops</a></li>
+            <li class="mb-3"><a class="text-color" href="farms.html">Farms</a></li>
+            <li class="mb-3"><a class="text-color" href="others.html">Other Facilities</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- copyright -->
+  <div class="copyright py-4 bg-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+          <p style="color: #fff;" class="mb-0">Copyright
+            <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script>
+            © Blessed Jildo and Daudi LTI. All Rights Reserved.</p>
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-facebook text-white"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-twitter-alt text-white"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-instagram text-white"></i></a></li>
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="#"><i class="ti-youtube text-white"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<!-- slick slider -->
+<script src="plugins/slick/slick.min.js"></script>
+<!-- aos -->
+<script src="plugins/aos/aos.js"></script>
+<!-- venobox popup -->
+<script src="plugins/venobox/venobox.min.js"></script>
+<!-- mixitup filter -->
+<script src="plugins/mixitup/mixitup.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="plugins/google-map/gmap.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+<!-- Gallery Script -->
+<script>
+(function() {
+  'use strict';
+  
+  // Initialize AOS
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100
+  });
+  
+  // Initialize Venobox
+  $(document).ready(function() {
+    $('.venobox').venobox({
+      bgcolor: 'rgba(0,0,0,0.95)',
+      border: '0',
+      spinner: 'cube-grid',
+      spinColor: '#00bcd4',
+      numeratio: true,
+      infinigall: true,
+      share: ['facebook', 'twitter', 'pinterest', 'download'],
+      titleattr: 'title'
+    });
+  });
+  
+  // Initialize MixItUp Filter
+  var mixer;
+  var containerEl = document.querySelector('#galleryGrid');
+  
+  if (containerEl) {
+    mixer = mixitup(containerEl, {
+      selectors: {
+        target: '.gallery-item'
+      },
+      animation: {
+        duration: 400,
+        effects: 'fade scale(0.8) translateZ(-100px)',
+        easing: 'cubic-bezier(0.645, 0.045, 0.355, 1)'
+      },
+      callbacks: {
+        onMixEnd: function(state) {
+          updateVisibleCount();
+          checkNoResults(state.totalShow);
+        }
+      }
+    });
+  }
+  
+  // Filter buttons click handler
+  document.querySelectorAll('.filter-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      // Remove active class from all buttons
+      document.querySelectorAll('.filter-btn').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      // Add active to clicked button
+      this.classList.add('active');
+      
+      // Filter
+      var filterValue = this.getAttribute('data-filter');
+      if (mixer) {
+        mixer.filter(filterValue);
+      }
+    });
+  });
+  
+  // Search functionality
+  var searchInput = document.getElementById('gallerySearch');
+  if (searchInput) {
+    searchInput.addEventListener('keyup', function() {
+      var searchTerm = this.value.toLowerCase();
+      
+      document.querySelectorAll('.gallery-item').forEach(function(item) {
+        var title = item.querySelector('h4') ? item.querySelector('h4').textContent.toLowerCase() : '';
+        var category = item.querySelector('.category-badge') ? item.querySelector('.category-badge').textContent.toLowerCase() : '';
+        var description = item.querySelector('.overlay-content p') ? item.querySelector('.overlay-content p').textContent.toLowerCase() : '';
+        
+        if (title.includes(searchTerm) || category.includes(searchTerm) || description.includes(searchTerm)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      updateVisibleCount();
+      checkNoResults();
+    });
+  }
+  
+  // View options
+  document.querySelectorAll('.view-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.view-btn').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      this.classList.add('active');
+      
+      var grid = document.getElementById('galleryGrid');
+      var view = this.getAttribute('data-view');
+      
+      grid.classList.remove('view-small', 'view-large', 'masonry');
+      
+      if (view === 'small') {
+        grid.classList.add('view-small');
+      } else if (view === 'large') {
+        grid.classList.add('view-large');
+      } else if (view === 'masonry') {
+        grid.classList.add('masonry');
+      }
+    });
+  });
+  
+  // Update visible count
+  function updateVisibleCount() {
+    var visible = document.querySelectorAll('.gallery-item:not([style*="display: none"])').length;
+    var countEl = document.getElementById('visibleCount');
+    if (countEl) {
+      countEl.textContent = visible;
+    }
+  }
+  
+  // Check no results
+  function checkNoResults(count) {
+    var noResults = document.getElementById('noResults');
+    var grid = document.getElementById('galleryGrid');
+    
+    if (count !== undefined) {
+      if (count === 0) {
+        noResults.classList.add('show');
+        grid.style.display = 'none';
+      } else {
+        noResults.classList.remove('show');
+        grid.style.display = '';
+      }
+    } else {
+      var visible = document.querySelectorAll('.gallery-item:not([style*="display: none"])').length;
+      if (visible === 0) {
+        noResults.classList.add('show');
+        grid.style.display = 'none';
+      } else {
+        noResults.classList.remove('show');
+        grid.style.display = '';
+      }
+    }
+  }
+  
+  // Load more functionality - Additional images from gallery folder
+  var additionalImages = [
+    // November 26, 2025 batch - remaining images (actual filenames)
+    'WhatsApp Image 2025-11-26 at 17.27.27_c09c654f.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.29_169066d0.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.29_bfd674d7.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.30_058eb96a.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.30_6af160c8.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.31_140d675e.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.32_8a4528c1.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.34_ba534a43.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.36_c795e437.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.38_09aff4a2.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.39_0acb58e4.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.42_4fe93e9d.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.42_8a87ab30.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.42_98f187f8.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.43_26024853.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.43_4af2026a.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.43_e942c85e.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.44_219a4c94.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.44_bbd726c1.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.44_c6c04b5c.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.45_59628808.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.45_a396c474.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.45_b02ad85f.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.46_f61928bf.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.47_4d28d6c9.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.48_89f72bdc.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.48_95328500.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.48_cce4ebc1.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.48_efa9d232.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.49_52cd17f5.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.49_65fa5704.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.50_3640bfa9.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.50_a08a9241.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.51_031bc099.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.51_7a663ec6.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.56_00aa0ede.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.56_43a46724.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.58_0c044bba.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.58_1baccdf7.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.58_63148d7f.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.58_92d762a1.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.59_390c73e1.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.59_92a13a49.jpg',
+    'WhatsApp Image 2025-11-26 at 17.27.59_c74e9439.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.02_4d327d6b.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.02_d995c14a.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.03_c3714738.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.03_d199739b.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.04_4af273ca.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.04_d17c3760.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.05_33f36896.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.05_526de711.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.09_1dfea257.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.09_e229afd6.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.10_17d5d03a.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.10_30ca18ca.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.10_65565b86.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.11_62f12034.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.11_9af817e3.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.11_fe440b64.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.12_3bf839d4.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.12_b5f8c54b.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.12_b7cc2f7f.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.13_0b132f7d.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.13_0d103ba5.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.13_15385856.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.13_4c8a44b3.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.14_15b10673.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.14_55696fe0.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.15_2c7c51c3.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.15_b376eed9.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.15_d1cd25b7.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.16_7d11c0a3.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.16_e90918c9.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.16_f05faaf3.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.16_fcb9a467.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.17_075514df.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.17_6042fa02.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.17_8ced5433.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.18_02f3c91b.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.18_4da0581c.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.18_a213208a.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.18_abc9f0d6.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.19_6355a0db.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.19_73f3b23a.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.19_e6c69dd5.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.20_02363dbd.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.20_101ef4ae.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.20_62a79aec.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.20_d3b7005c.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.20_dd47478a.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.21_39e8f8cf.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.21_8dc224be.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.21_a29b2ecf.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.22_36bbde30.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.22_6b87e33a.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.22_72d92af0.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.23_12a1c481.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.23_414283bc.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.23_d0abbca0.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.24_8ab15d5b.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.24_bc31aee1.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.25_82f864cb.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.25_8eed5da0.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.25_fe5ffa31.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.26_325e4471.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.26_f0b5fb67.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.27_0684eb63.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.27_0e2eb9b5.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.27_5be96e29.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.27_a9314cf8.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.28_18ae0085.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.28_6e295d53.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.28_a733efc9.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.29_1e42b192.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.29_dec9c3bf.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.29_dfc7a273.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.29_f822ad2f.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.30_69cbeb48.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.30_b622d3c1.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.30_c7f285ed.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.31_38711ca0.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.31_9769b38b.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.31_e004f0af.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.32_4c110e74.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.32_c8570b92.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.33_98f33537.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.33_d53610f9.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.33_d97d9647.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.34_5b3c17fa.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.34_64925177.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.35_1b9ec7d4.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.35_4bd75fff.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.35_c411ec0e.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.36_2954342d.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.36_597b268c.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.36_61394e67.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.37_26dc546b.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.37_8c8eaef6.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.37_a42f63c9.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.37_bd03d143.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.38_4fa1b174.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.38_f4aaca5a.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.39_3374eca5.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.39_63440c9f.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.39_71d62665.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.39_b44ec2f9.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.40_0918bd67.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.40_52c75f49.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.40_de3fd304.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.41_7bb86f7a.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.41_985f678b.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.42_0fcbbdac.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.42_712620b0.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.43_55b8ab80.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.43_c0d1af0d.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.44_37bd7468.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.44_52cc0778.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.44_6033057b.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.44_b477e165.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.44_dd5e5b5e.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.45_b84b4a9b.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.45_e98dd884.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.46_1356eecc.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.46_2bdcacaa.jpg',
+    'WhatsApp Image 2025-11-26 at 17.28.46_4eaf9ad3.jpg'
+  ];
+  
+  // Categories for random assignment
+  var categories = ['campus', 'students', 'events', 'programs', 'facilities', 'activities', 'prayers'];
+  
+  // Track loaded images count
+  var loadedCount = 0;
+  var imagesPerLoad = 12;
+  var totalAdditional = additionalImages.length;
+  
+  
+  // Function to create gallery item HTML
+  function createGalleryItem(imageName, index) {
+    var encodedPath = 'images/gallery/' + encodeURIComponent(imageName);
+    var category = categories[index % categories.length];
+    
+    var html = '<div class="gallery-item mix ' + category + '" data-aos="fade-up">' +
+      '<div class="gallery-card">' +
+        '<div class="gallery-image">' +
+          '<a href="' + encodedPath + '" data-gall="gallery" class="venobox">' +
+            '<img src="' + encodedPath + '" alt="BJDLTI Gallery Photo" loading="lazy">' +
+            '<div class="gallery-overlay">' +
+              '<div class="overlay-content">' +
+                '<i class="ti-fullscreen"></i>' +
+                '<span>View Photo</span>' +
+              '</div>' +
+            '</div>' +
+          '</a>' +
+        '</div>' +
+        '<div class="gallery-info">' +
+          '<span class="gallery-category">' + category.charAt(0).toUpperCase() + category.slice(1) + '</span>' +
+          '<button class="like-btn" onclick="toggleLike(this)" title="Like this photo">' +
+            '<i class="ti-heart"></i>' +
+          '</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+    
+    return html;
+  }
+  
+  // Load more button functionality
+  var loadMoreBtn = document.getElementById('loadMoreBtn');
+  var loadMoreSection = document.querySelector('.load-more-section');
+  
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', function() {
+      // Add loading state
+      this.innerHTML = '<i class="ti-reload ti-spin"></i> Loading...';
+      this.disabled = true;
+      
+      // Simulate loading delay for smooth UX
+      setTimeout(function() {
+        var galleryGrid = document.getElementById('galleryGrid');
+        var endIndex = Math.min(loadedCount + imagesPerLoad, totalAdditional);
+        var newItemsHtml = '';
+        
+        // Create HTML for new items
+        for (var i = loadedCount; i < endIndex; i++) {
+          newItemsHtml += createGalleryItem(additionalImages[i], i);
+        }
+        
+        // Append new items to grid
+        galleryGrid.insertAdjacentHTML('beforeend', newItemsHtml);
+        
+        // Update loaded count
+        loadedCount = endIndex;
+        
+        // Update total count display
+        var totalCountEl = document.getElementById('totalCount');
+        if (totalCountEl) {
+          totalCountEl.textContent = 51 + loadedCount; // 51 initial items + loaded
+        }
+        
+        // Reinitialize MixItUp to include new items
+        if (typeof mixitup !== 'undefined') {
+          var mixer = mixitup.instances[0];
+          if (mixer) {
+            mixer.destroy();
+          }
+          mixitup('#galleryGrid', {
+            selectors: {
+              target: '.gallery-item'
+            },
+            animation: {
+              duration: 300
+            },
+            callbacks: {
+              onMixEnd: function(state) {
+                updateVisibleCount();
+                checkNoResults(state.totalShow);
+              }
+            }
+          });
+        }
+        
+        // Reinitialize VenoBox for new items
+        if (typeof jQuery !== 'undefined' && jQuery.fn.venobox) {
+          jQuery('.venobox').venobox({
+            numeratio: true,
+            titleattr: 'data-title',
+            spinner: 'cube-grid'
+          });
+        }
+        
+        // Trigger AOS refresh for new items
+        if (typeof AOS !== 'undefined') {
+          AOS.refresh();
+        }
+        
+        // Apply reveal animation to new items
+        setTimeout(revealOnScroll, 100);
+        
+        // Update visible count
+        updateVisibleCount();
+        
+        // Reset button state
+        loadMoreBtn.innerHTML = 'Load More Photos <i class="ti-reload"></i>';
+        loadMoreBtn.disabled = false;
+        
+        // Check if all images loaded
+        if (loadedCount >= totalAdditional) {
+          loadMoreBtn.innerHTML = '<i class="ti-check"></i> All Photos Loaded';
+          loadMoreBtn.disabled = true;
+          loadMoreBtn.classList.add('btn-success');
+          loadMoreBtn.classList.remove('btn-primary');
+          
+          // Update remaining count
+          var remainingEl = document.querySelector('.remaining-count');
+          if (remainingEl) {
+            remainingEl.innerHTML = '<i class="ti-check"></i> All 217+ photos loaded!';
+          }
+        } else {
+          // Update remaining count
+          var remaining = totalAdditional - loadedCount;
+          var remainingEl = document.querySelector('.remaining-count');
+          if (remainingEl) {
+            remainingEl.textContent = remaining + ' more photos available';
+          }
+        }
+        
+      }, 800);
+    });
+  }
+  
+  // Scroll reveal for gallery items
+  function revealOnScroll() {
+    var items = document.querySelectorAll('.gallery-item:not(.revealed)');
+    items.forEach(function(item) {
+      var itemTop = item.getBoundingClientRect().top;
+      var windowHeight = window.innerHeight;
+      
+      if (itemTop < windowHeight - 100) {
+        item.classList.add('revealed');
+      }
+    });
+  }
+  
+  // Initial reveal
+  setTimeout(revealOnScroll, 100);
+  window.addEventListener('scroll', revealOnScroll);
+  
+})();
+
+// Like button toggle
+function toggleLike(btn) {
+  btn.classList.toggle('liked');
+  
+  // Optional: Save to localStorage
+  var img = btn.closest('.gallery-item').querySelector('img');
+  var imgSrc = img ? img.getAttribute('src') : '';
+  var likedImages = JSON.parse(localStorage.getItem('likedImages') || '[]');
+  
+  if (btn.classList.contains('liked')) {
+    if (!likedImages.includes(imgSrc)) {
+      likedImages.push(imgSrc);
+    }
+  } else {
+    likedImages = likedImages.filter(function(src) {
+      return src !== imgSrc;
+    });
+  }
+  
+  localStorage.setItem('likedImages', JSON.stringify(likedImages));
+}
+
+// Restore liked state on page load
+document.addEventListener('DOMContentLoaded', function() {
+  var likedImages = JSON.parse(localStorage.getItem('likedImages') || '[]');
+  
+  document.querySelectorAll('.gallery-item').forEach(function(item) {
+    var img = item.querySelector('img');
+    var imgSrc = img ? img.getAttribute('src') : '';
+    
+    if (likedImages.includes(imgSrc)) {
+      var likeBtn = item.querySelector('.like-btn');
+      if (likeBtn) {
+        likeBtn.classList.add('liked');
+      }
+    }
+  });
+});
+</script>
+
+</body>
+</html>
